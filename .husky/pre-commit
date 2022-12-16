@@ -1,0 +1,14 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# If everything passes... Now we can commit
+echo 'Husky: Trying to build now.'
+
+pnpm build ||
+(
+	echo 'Husky: ❌ Build failed. View the errors above to see why.'
+	false;
+)
+
+# If everything passes... Now we can commit
+echo 'Husky: ✅ Committing changes.'
